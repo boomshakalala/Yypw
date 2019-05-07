@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/tab_top"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white"
+        app:tl_tab_space_equal="true"
+        app:tl_textSelectColor="@color/colorPrimary"
+        app:tl_textUnselectColor="@color/grey_text"
+        app:tl_textsize="14sp"
+        app:tl_underline_height="0dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="44dp"
+        android:background="@color/bg_grey" />
+
+    <LinearLayout
+        android:id="@+id/ll_filter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_grey"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingTop="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckedTextView
+                    android:id="@+id/tv_all"
+                    style="@style/style_item_coupon_filter"
+                    android:checked="true"
+                    android:text="全部" />
+
+                <CheckedTextView
+                    android:id="@+id/tv_ticket"
+                    style="@style/style_item_coupon_filter"
+                    android:layout_marginStart="11dp"
+                    android:text="票务券" />
+
+                <CheckedTextView
+                    android:id="@+id/tv_rent"
+                    style="@style/style_item_coupon_filter"
+                    android:layout_marginStart="11dp"
+                    android:text="租车券" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <CheckedTextView
+                    android:id="@+id/tv_group_rent"
+                    style="@style/style_item_coupon_filter"
+                    android:text="包车券"
+                    android:visibility="gone"/>
+
+                <CheckedTextView
+                    android:id="@+id/tv_fast"
+                    style="@style/style_item_coupon_filter"
+                    android:text="快车券" />
+
+                <CheckedTextView
+                    android:id="@+id/tv_special"
+                    style="@style/style_item_coupon_filter"
+                    android:layout_marginStart="11dp"
+                    android:text="专车券" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="11dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/bg_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/half_trans" />
+    </LinearLayout>
+
+</RelativeLayout>

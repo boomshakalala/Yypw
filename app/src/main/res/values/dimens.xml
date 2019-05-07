@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="def_rating_bar_height">9dp</dimen>
+    <dimen name="def_rating_bar_height_large">30dp</dimen>
+</resources>

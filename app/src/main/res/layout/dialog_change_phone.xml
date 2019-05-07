@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black_text"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:id="@+id/tv_title"
+        android:text="更换手机号"
+        android:layout_centerHorizontal="true"/>
+    <EditText
+        android:id="@+id/et_phone"
+        style="@style/inputPhoneStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:background="@null"
+        android:drawableLeft="@mipmap/ic_phone"
+        android:drawablePadding="8dp"
+        android:hint="请输入未注册手机号"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:layout_marginTop="30dp"/>
+    <View
+        style="@style/view_line_h"
+        android:layout_alignBottom="@+id/et_phone"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+
+    <EditText
+        android:id="@+id/et_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_phone"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:drawableLeft="@mipmap/ic_code"
+        android:drawablePadding="8dp"
+        android:hint="请输入验证码"
+        android:inputType="number"
+        android:maxLength="6"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="12dp"
+        android:paddingTop="16dp"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/textSize" />
+
+    <TextView
+        android:id="@+id/tv_get_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/et_phone"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:text="获取验证码"
+        android:textColor="@color/color_gray_orange_selector"
+        android:textSize="@dimen/textSize" />
+    <View
+        style="@style/view_line_h"
+        android:layout_alignBottom="@+id/et_code"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+    <TextView
+        android:id="@+id/tv_action"
+        style="@style/btnTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_code"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="确认更换"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white" />
+</RelativeLayout>

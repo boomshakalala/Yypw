@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.MainActivity"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp">
+
+                <ImageView
+                    android:id="@+id/iv_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="10dp"
+                    android:src="@mipmap/icon_menu" />
+
+                <ImageView
+                    android:id="@+id/iv_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:padding="10dp"
+                    android:src="@mipmap/icon_msg"
+                    android:clickable="true"
+                    />
+                <ImageView
+                    android:id="@+id/iv_unread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/unread"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/tv_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="请选择"
+                    android:textColor="@color/black_text"
+                    android:drawableRight="@mipmap/drop_down"
+                    android:textSize="14sp"
+                    android:padding="6dp"
+                    android:drawablePadding="5dp"/>
+            </RelativeLayout>
+            <com.flyco.tablayout.CommonTabLayout
+                android:id="@+id/tab_top"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                app:tl_indicator_height="0dp"
+                app:tl_tab_space_equal="true"
+                app:tl_textsize="14sp"
+                app:tl_textSelectColor="@color/colorPrimary"
+                app:tl_textUnselectColor="@color/grey_text"
+                />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/fl_container"/>
+        </LinearLayout>
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nv_main_navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+    </android.support.v4.widget.DrawerLayout>
+
+
+</FrameLayout>

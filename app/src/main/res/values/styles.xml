@@ -1,0 +1,99 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--避免第一次进来白屏或黑屏-->
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="btnTextStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/buttonTextSize</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+    <style name="btnTextStyleWhite">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/buttonTextSize</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="myRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar</item>
+        <item name="android:minHeight">@dimen/def_rating_bar_height</item>
+        <item name="android:maxHeight">@dimen/def_rating_bar_height</item>
+    </style>
+    <style name="myRatingBarLarge" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar_large</item>
+        <item name="android:minHeight">@dimen/def_rating_bar_height_large</item>
+        <item name="android:maxHeight">@dimen/def_rating_bar_height_large</item>
+    </style>
+    <style name="style_button">
+        <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginEnd">@dimen/activity_horizontal_margin</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--用户中心文字-->
+    <style name="item_user_text">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:drawablePadding">12dp</item>
+    </style>
+    <style name="item_user_text.more">
+        <item name="android:drawableEnd">@mipmap/icon_more</item>
+    </style>
+
+    <style name="style_text_normal">
+        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="style_common_title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="style_tv_rent_add">
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="style_item_coupon_filter">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textColor">@color/selector_blue_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:background">@drawable/selector_blue</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+</resources>

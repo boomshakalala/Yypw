@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.trip.TripActivity">
+    <View style="@style/view_line_h" />
+    <RelativeLayout
+        android:id="@+id/rl_status"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/rl_driver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/headView"
+                style="@style/DefaultHeadStyle"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/headView"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@+id/headView"
+                android:text=""
+                android:textColor="@color/black_text"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tv_license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_name"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/black_text"
+                android:background="#E9E9EA"
+                android:padding="2dp"/>
+            <TextView
+                android:id="@+id/tv_car_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_name"
+                android:layout_below="@+id/tv_license"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/tv_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_name"
+                android:layout_marginLeft="4dp"
+                android:layout_alignBottom="@id/tv_name"
+                android:gravity="center_vertical"
+                android:text="-"
+                android:drawableStart="@mipmap/star_full"
+                android:drawablePadding="4dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:textColor="@color/textColor99"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_score"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@+id/tv_score"
+                android:gravity="center_vertical"
+                android:text="-"
+                android:textColor="@color/textColor99"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_call_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="22dp"
+                android:drawableRight="@mipmap/ic_call_phone_y"
+                android:gravity="center"
+                android:paddingRight="14dp" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_waite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="等待司机接单…"
+            android:textColor="@color/black_text"
+            android:textSize="14sp"
+            android:drawableStart="@mipmap/ic_waite"
+            android:drawablePadding="8dp"
+            android:padding="32dp"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        android:id="@+id/mSlidingUpPanelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        app:umanoFadeColor="@android:color/transparent"
+        app:umanoPanelHeight="20dp"
+        app:umanoShadowHeight="0dp"
+        android:layout_below="@id/rl_status">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.amap.api.maps.MapView
+                android:id="@+id/mMapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <FrameLayout
+                android:id="@+id/fl_show_location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f2f5f6"
+                android:visibility="gone">
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tv_time_tip"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:drawablePadding="8dp"-->
+                    <!--android:drawableTop="@mipmap/ic_location_black"-->
+                    <!--android:text="出发前0分钟内可查看司机位置" />-->
+            </FrameLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fl_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent">
+
+            <RelativeLayout
+                android:id="@+id/rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+                <View
+                    android:id="@+id/line"
+                    style="@style/view_line_h" />
+
+                <TextView
+                    android:id="@+id/tv_time_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/line"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="12dp"
+                    android:drawableLeft="@mipmap/ic_trip_time"
+                    android:drawablePadding="8dp"
+                    android:singleLine="true"
+                    android:text="--"
+                    android:textColor="@color/textColor66" />
+
+                <TextView
+                    android:id="@+id/tv_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_time_top"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="16dp"
+                    android:drawableLeft="@drawable/ic_dot_start"
+                    android:drawablePadding="12dp"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:text="--"
+                    android:textColor="@color/textColor66" />
+
+                <TextView
+                    android:id="@+id/tv_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_start"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:drawableLeft="@drawable/ic_dot_end"
+                    android:drawablePadding="12dp"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:text="--"
+                    android:textColor="@color/textColor66" />
+                <TextView
+                    android:id="@+id/tv_money_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_start"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_alignParentRight="true"
+                    android:drawablePadding="12dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:visibility="gone"
+                    android:singleLine="true"
+                    android:text="--"
+                    android:textColor="@color/textColor" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_panel"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/rl"
+                android:layout_centerHorizontal="true"
+                android:drawableRight="@mipmap/ic_panel"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:background="@color/white"/>
+        </RelativeLayout>
+        <!--</FrameLayout>-->
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_bottom"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/tv_my_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/rl_bottom"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="16dp"
+            android:drawableLeft="@mipmap/ic_location" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_options"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_trip_time"
+                    android:drawablePadding="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:hint="现在"
+                    android:textColor="@color/textColor66"
+                    android:textSize="@dimen/textSize" />
+
+                <View
+                    style="@style/view_line_h" />
+
+                <TextView
+                    android:id="@+id/tv_start_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_dot_start"
+                    android:drawablePadding="16dp"
+                    android:hint="从哪儿出发"
+                    android:paddingBottom="16dp"
+                    android:singleLine="true"
+                    android:paddingTop="16dp"
+                    android:textColor="@color/textColor66"
+                    android:textSize="@dimen/textSize" />
+
+                <View
+                    style="@style/view_line_h"/>
+
+                <TextView
+                    android:id="@+id/tv_end_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_dot_end"
+                    android:drawablePadding="16dp"
+                    android:singleLine="true"
+                    android:hint="您要去哪儿"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:textColor="@color/textColor66"
+                    android:textSize="@dimen/textSize" />
+                <View
+                    style="@style/view_line_h" />
+                <LinearLayout
+                    android:id="@+id/ll_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <RadioGroup
+                        android:id="@+id/rg_type"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:gravity="center_vertical">
+                        <RadioButton
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/rb_cheap"
+                            android:drawableTop="@drawable/type_cheap_selector"
+                            android:text="经济型"
+                            android:textSize="14sp"
+                            android:gravity="center"
+                            android:drawablePadding="2dp"
+                            android:checked="true"
+                            android:button="@null"
+                            android:textColor="@color/selector_blue_black"/>
+                        <View style="@style/view_line_v"/>
+                        <RadioButton
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/rb_comfortable"
+                            android:drawableTop="@drawable/type_comfortable_selector"
+                            android:text="舒适型"
+                            android:button="@null"
+                            android:textSize="14sp"
+                            android:gravity="center"
+                            android:drawablePadding="2dp"
+                            android:textColor="@color/selector_blue_black"/>
+                        <View style="@style/view_line_v"/>
+                        <RadioButton
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/rb_business"
+                            android:drawableTop="@drawable/type_buysiness_selector"
+                            android:text="商务型"
+                            android:button="@null"
+                            android:textSize="14sp"
+                            android:gravity="center"
+                            android:drawablePadding="2dp"
+                            android:textColor="@color/selector_blue_black"/>
+                    </RadioGroup>
+                    <View style="@style/view_line_h"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/black_text"
+                    android:text="打车费约0元"/>
+                <TextView
+                    android:id="@+id/tv_coupon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/smallTextSize"
+                    android:paddingBottom="16dp"
+                    android:textColor="@color/textColor99"
+                    android:text="--"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:id="@+id/tv_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/style_button"
+            android:text="呼叫快车"
+            android:textColor="@color/white"
+            android:visibility="gone"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_status"
+            android:gravity="center"
+            android:text="正为您寻找车辆，已等待00:38"
+            android:textColor="@color/black_text"
+            android:textSize="14sp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:visibility="gone"/>
+    </LinearLayout>
+</RelativeLayout>

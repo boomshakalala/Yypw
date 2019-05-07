@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingTop="8dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_unchecked"
+        android:layout_centerVertical="true"
+        android:id="@+id/iv_button"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_text"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/iv_button"
+        android:layout_marginStart="10dp"
+        android:id="@+id/tv_name"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="孔强 13987654321"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tag_driver"
+        android:layout_toEndOf="@id/tv_name"
+        android:layout_marginStart="12dp"
+        android:text="驾驶员"
+        android:textSize="10sp"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/bg_driver_tag"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        android:visibility="gone" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_id_card"
+        android:layout_alignStart="@id/tv_name"
+        android:text="身份证号 500109199902061024"
+        android:layout_below="@id/tv_name"
+        android:textSize="10sp"
+        android:textColor="@color/grey_text"
+        android:layout_marginTop="5dp"/>
+    <ImageView
+        android:id="@+id/iv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/man_edit"
+        android:padding="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/dividing_line_color"
+        android:layout_below="@id/tv_id_card"
+        android:layout_marginTop="8dp"/>
+</RelativeLayout>

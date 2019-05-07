@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    <View style="@style/view_line_h"
+        android:layout_alignParentTop="true"/>
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="12dp"
+        android:text="--"
+        android:textColor="@color/textColor99"
+        android:textSize="@dimen/smallTextSize" />
+    <RatingBar
+        android:id="@+id/rb_score"
+        style="@style/myRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:isIndicator="true"
+        android:max="5" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rb_score"
+        android:layout_marginTop="1dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="--"
+        android:layout_marginBottom="12dp"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/textSize" />
+</RelativeLayout>

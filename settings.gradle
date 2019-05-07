@@ -1,0 +1,1 @@
+include ':app', ':xldutils-kotlin', ':amaplib',':rxnetty','umeng_sdk'

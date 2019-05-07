@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/layout_search_title" />
+        <cn.sinata.xldutils.view.SwipeRefreshRecyclerLayout
+            android:layout_below="@id/rl_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lv_car"
+            android:background="@color/page_bg"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@mipmap/no_car_data"
+            android:layout_marginTop="20dp"
+            android:id="@+id/tv_empty"
+            android:text="暂无数据"
+            android:gravity="center_horizontal"
+            android:drawablePadding="10dp"
+            android:visibility="gone"
+            android:layout_below="@id/rl_title"/>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

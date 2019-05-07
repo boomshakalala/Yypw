@@ -1,0 +1,31 @@
+<resources>
+
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_25">25dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
+    <dimen name="dp_55">55dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_80">80dp</dimen>
+    <!--如果需要按照系统字体大小变更，使用sp。不变更dp-->
+    <dimen name="smallTextSize">12dp</dimen>
+    <dimen name="textSize">14dp</dimen>
+    <dimen name="textSize15">15dp</dimen>
+    <dimen name="buttonTextSize">16dp</dimen>
+    <dimen name="textSize_18">18dp</dimen>
+    <dimen name="textSize_20">20dp</dimen>
+    <dimen name="textSize_24">24dp</dimen>
+    <dimen name="textSize_30">30dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="actionBarSize">56dp</dimen>
+    <dimen name="title_bar_size">48dp</dimen>
+</resources>

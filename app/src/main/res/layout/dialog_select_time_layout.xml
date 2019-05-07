@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="取消"
+            android:textColor="@color/textColor99"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="16dp"
+            android:text="确定"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/textSize" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2天"
+            android:layout_centerInParent="true"
+            android:textColor="@color/black_text"
+            android:id="@+id/tv_duration"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/dividing_line_color"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rg_type">
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="取车时间\n06-05 10:30"
+            android:textSize="14sp"
+            android:id="@+id/rb_rent_time"
+            android:textColor="@color/selector_blue_grey"
+            android:checked="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.2"
+            android:background="@drawable/bg_selector_blue_grey"/>
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="还车时间\n06-05 10:30"
+            android:textSize="14sp"
+            android:id="@+id/rb_return_time"
+            android:gravity="center"
+            android:textColor="@color/selector_blue_grey"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:lineSpacingMultiplier="1.2"
+            android:background="@drawable/bg_selector_blue_grey"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <cn.sinata.xldutils.view.WheelView
+            android:id="@+id/wv_day"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <cn.sinata.xldutils.view.WheelView
+            android:id="@+id/wv_hour"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <cn.sinata.xldutils.view.WheelView
+            android:id="@+id/wv_minute"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+</LinearLayout>

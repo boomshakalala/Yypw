@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.hbcx.user"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "a3184ae14ca2c16fd0148fdb", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+    }
+    signingConfigs {
+        config {
+            try {
+                storeFile file("yypw.jks")
+                storePassword KEYSTORE_PASSWORD
+                keyAlias "yypw"
+                keyPassword KEY_PASSWORD
+            } catch (ex) {
+                throw new InvalidUserDataException("You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.")
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            ndk {
+                abiFilters "armeabi" // 保留这种架构的CPU
+            }
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            ndk {
+                abiFilters "armeabi" // 保留这种架构的CPU
+            }
+        }
+    }
+//    splits {
+//        abi {
+//            enable true
+//            reset()
+//            include 'armeabi'
+//            universalApk false
+//        }
+//    }
+    //netty 必须屏蔽这几个文件
+    packagingOptions {
+        exclude 'META-INF/NOTICE' // will not include NOTICE file
+        exclude 'META-INF/LICENSE' // will not include LICENSE file
+        //netty files
+        exclude 'META-INF/INDEX.LIST' // will not include this file
+        exclude 'META-INF/io.netty.versions.properties' // will not include this file
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "伙伴出行-${defaultConfig.versionName}.apk"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support:cardview-v7:$support_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation project(':xldutils-kotlin')
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    //okhttp log
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    implementation "com.android.support:design:$support_version"
+    implementation project(':amaplib')
+    implementation project(':rxnetty')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    implementation 'com.github.promeg:tinypinyin:2.0.3'
+    implementation 'cn.yipianfengye.android:zxing-library:2.2'
+    implementation 'top.zibin:Luban:1.1.8'
+    implementation('cn.qqtheme.framework:WheelPicker:1.5.6') {
+        exclude group: 'com.android.support'
+    }
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+    implementation project(':umeng_sdk')
+
+
+    implementation 'cn.jiguang.sdk:jpush:3.1.6'
+    implementation 'cn.jiguang.sdk:jcore:1.2.5'
+}

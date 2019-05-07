@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.amap.api.maps.TextureMapView
+        android:id="@+id/mMapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_location"
+        android:src="@mipmap/ic_flag"
+        android:layout_centerInParent="true"/>
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_options"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="14dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_trip_time"
+                android:drawablePadding="16dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:hint="现在"
+                android:textColor="@color/textColor66"
+                android:textSize="@dimen/textSize" />
+
+            <View
+                style="@style/view_line_h" />
+
+            <TextView
+                android:id="@+id/tv_start_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_dot_start"
+                android:drawablePadding="16dp"
+                android:hint="从哪儿出发"
+                android:paddingBottom="16dp"
+                android:singleLine="true"
+                android:paddingTop="16dp"
+                android:textColor="@color/textColor66"
+                android:textSize="@dimen/textSize" />
+
+            <View
+                style="@style/view_line_h"/>
+
+            <TextView
+                android:id="@+id/tv_end_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_dot_end"
+                android:drawablePadding="16dp"
+                android:singleLine="true"
+                android:hint="您要去哪儿"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:textColor="@color/textColor66"
+                android:textSize="@dimen/textSize" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <TextView
+        android:id="@+id/tv_my_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/card_options"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:drawableLeft="@mipmap/ic_location" />
+</RelativeLayout>

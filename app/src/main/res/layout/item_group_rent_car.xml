@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="80dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/iv_car"
+        fresco:actualImageScaleType="centerCrop"
+        fresco:placeholderImage="@mipmap/ic_img_default"
+        fresco:placeholderImageScaleType="centerCrop"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="唐山泰赫汽车租赁公司"
+        android:layout_toEndOf="@id/iv_car"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignTop="@id/iv_car"
+        android:id="@+id/tv_title"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="14sp"
+        android:textColor="@color/black_text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_alignStart="@id/tv_title"
+        android:textColor="@color/grey_text"
+        android:text="可乘坐13人"
+        android:textSize="12sp"
+        android:id="@+id/tv_person_count"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="￥280/天"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="2dp"
+        android:textSize="14sp"
+        android:textColor="@color/color_money_text"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/dividing_line_color"
+        android:layout_below="@id/iv_car"
+        android:layout_marginTop="10dp"/>
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="46dp">
+    <CheckBox
+        android:id="@+id/cb_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:button="@drawable/radio_selector"
+        android:enabled="false"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="唐山汽车客运东站"
+        android:textColor="@color/textColor66"
+        android:textSize="14sp"
+        android:layout_marginStart="53dp"
+        android:id="@+id/tv_station"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="预计 10:50"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:textSize="12sp"
+        android:id="@+id/tv_time"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@color/dividing_line_color"/>
+</RelativeLayout>

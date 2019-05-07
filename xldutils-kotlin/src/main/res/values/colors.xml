@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="title_bar">@color/colorPrimary</color>
+    <color name="title_text">@color/textColor</color>
+    <color name="l_transparent">#80000000</color>
+    <color name="l_white">#fbfaf5</color>
+    <color name="disableColor">#a09e9f</color>
+    <color name="textColor">#333333</color>
+    <color name="textColor66">#666666</color>
+    <color name="textColor99">#999999</color>
+    <color name="textColorHint">#ababab</color>
+    <color name="tipTextColor">#7e7e7e</color>
+    <color name="dividing_line_color">#dedede</color>
+    <color name="blue">#32b3d3</color>
+    <color name="white">@android:color/white</color>
+    <color name="page_bg">#f1f5f6</color>
+    <color name="color_text_price">#E60000</color>
+</resources>

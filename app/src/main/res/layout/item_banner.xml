@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.drawee.view.SimpleDraweeView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/imageView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:actualImageScaleType="centerCrop"
+    app:failureImage="@color/dividing_line_color"
+    app:placeholderImage="@color/dividing_line_color"
+    app:roundedCornerRadius="4dp"
+    app:placeholderImageScaleType="fitXY"
+    app:viewAspectRatio="0.714">
+
+</com.facebook.drawee.view.SimpleDraweeView>

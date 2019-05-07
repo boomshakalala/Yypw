@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@android:id/button1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="@dimen/dp_15"
+            android:text="拍照"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/dividing_line_color" />
+
+        <Button
+            android:id="@android:id/button2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="@dimen/dp_15"
+            android:text="从相册选择"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize" />
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/dividing_line_color" />
+    <Button
+        android:id="@android:id/button3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/dp_15"
+        android:text="取消"
+        android:textColor="@color/textColor99"
+        android:textSize="@dimen/textSize" />
+</LinearLayout>
