@@ -127,7 +127,7 @@ class TicketOrderDetailActivity : TranslateStatusBarActivity() {
                         } else
                             view.iv_ticket_code.setOnClickListener {
                                 val codeDialog = CodeDialog()
-                                codeDialog.arguments = bundleOf("code_img" to createBarcode(if (it2.elTicket==null) it.id.toString() else it2.elTicket, dip(400), dip(150)),"code_str" to if (it2.elTicket==null) it.id.toString() else it2.elTicket)
+                                codeDialog.arguments = bundleOf("code_img" to createBarcode(if (it2.elTicket==null) "YunYou:"+it.id.toString()+"0" else "YunYou:"+it2.elTicket+"0", dip(400), dip(150)),"code_str" to if (it2.elTicket==null) it.id.toString()+"0" else it2.elTicket+"0")
                                 codeDialog.show(supportFragmentManager, "code")
                             }
                     }
@@ -163,8 +163,8 @@ class TicketOrderDetailActivity : TranslateStatusBarActivity() {
                 } else {
                     tv_deadline.gone()
                     rl_code.visible()
-                    iv_qr_code.setImageBitmap(CodeUtils.createImage("YunYou:$id", dip(136), dip(136), null))
-                    tv_num.text = "验票码：${it.orderNum.substring(7)}"
+                    iv_qr_code.setImageBitmap(CodeUtils.createImage("YunYou:$id"+"1", dip(136), dip(136), null))
+                    tv_num.text = "验票码：${it.orderNum.substring(7)}"+"1"
                     if (it.status in (3..6)) {
                         iv_overlay.visible()
                         tv_num.textColorResource = R.color.grey_text
@@ -245,6 +245,7 @@ class TicketOrderDetailActivity : TranslateStatusBarActivity() {
     }
 
     private fun drawText(bitmap: Bitmap,content: String):Bitmap{
+        val id = content.substring(7)
         val paint = Paint()
         paint.color = Color.BLACK
         paint.isAntiAlias = true
@@ -253,7 +254,7 @@ class TicketOrderDetailActivity : TranslateStatusBarActivity() {
 //        paint.setTextAlign(Paint.Align.CENTER);
         val fm = paint.fontMetrics;
         //测量字符串的宽度
-        val textWidth = paint.measureText(content);
+        val textWidth = paint.measureText(id);
         //绘制字符串矩形区域的高度
         val textHeight = (fm.bottom - fm.top).toInt()
         // x 轴的缩放比率
@@ -267,7 +268,7 @@ class TicketOrderDetailActivity : TranslateStatusBarActivity() {
         canvas.drawColor(Color.WHITE);
         canvas.setBitmap(result);
         canvas.drawBitmap(bitmap, 0f, 0f, null)
-        canvas.drawText(content,0f,baseLine.toFloat(),paint)
+        canvas.drawText(id,0f,baseLine.toFloat(),paint)
         canvas.save()
         canvas.restore()
         return result
