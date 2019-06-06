@@ -100,9 +100,17 @@ class CancelTicketActivity:TranslateStatusBarActivity() {
         }
         sb.deleteCharAt(sb.lastIndex)
         HttpManager.refundTicket(id,sb.toString()).request(this){_,_->
+            addTicket(id,passengers.size)
+        }
+    }
+
+    private fun addTicket(id:Int,number:Int){
+        HttpManager.addTicket(id,number).request(this){_,_->
             toast("申请退票成功")
             setResult(Activity.RESULT_OK)
             finish()
         }
     }
+
+
 }

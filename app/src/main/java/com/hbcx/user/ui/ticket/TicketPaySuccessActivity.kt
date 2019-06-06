@@ -22,10 +22,7 @@ import com.google.zxing.BarcodeFormat
 import com.hbcx.user.utils.Const
 import kotlinx.android.synthetic.main.activity_ticket_pay_success.*
 import kotlinx.android.synthetic.main.item_passenger_info.view.*
-import org.jetbrains.anko.dip
-import org.jetbrains.anko.imageBitmap
-import org.jetbrains.anko.sp
-import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.*
 
 
 class TicketPaySuccessActivity : TranslateStatusBarActivity() {
@@ -56,8 +53,9 @@ class TicketPaySuccessActivity : TranslateStatusBarActivity() {
                 .color(this, 0, 1, R.color.color_tv_orange)
                 .color(this, 16, 16+phone.length, R.color.black_text).build()
         tv_num.text = "验票码：${orderNum.substring(7)}"+"1"
-        iv_qr_code.setImageBitmap(CodeUtils.createImage("YunYou:$id"+"1", dip(136), dip(136), null))
+        iv_qr_code.setImageBitmap(CodeUtils.createImage("YunYou:$orderNum"+"1", dip(136), dip(136), null))
         getData()
+        deletTickect(id)
     }
 
     private fun getData() {
@@ -72,7 +70,7 @@ class TicketPaySuccessActivity : TranslateStatusBarActivity() {
                             view.iv_ticket_code.gone()
                         } else
                             view.iv_ticket_code.setOnClickListener { _ ->
-                                iv_qr_code.imageBitmap = createBarcode("YunYou:"+it.elTicket+"0", dip(136), dip(136))
+                                iv_qr_code.imageBitmap = createBarcode("YunYou:"+orderNum+"0", dip(136), dip(136))
                             }
                         ll_passenger.addView(view)
                     }
@@ -149,6 +147,16 @@ class TicketPaySuccessActivity : TranslateStatusBarActivity() {
         canvas.save()
         canvas.restore()
         return result
+    }
+
+    private fun deletTickect(orderId:Int){
+        HttpManager.deleteTicket(id).request(this,true,success = {_,_ ->
+
+
+        },error = {_,_ ->
+
+            })
+
     }
 
 

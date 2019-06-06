@@ -906,5 +906,22 @@ object HttpManager {
     fun checkIdCard(name: String,num:String): Flowable<JsonObject> {
         return request().checkIdCard(Api.JUHE_URL, Const.JUHE_KEY, num,name).defaultScheduler()
     }
+
+
+    /**
+     * 验证身份证
+     */
+    fun deleteTicket(id: Int): Flowable<ResultData<JsonObject>> {
+        val request = ParamsBuilder.create().append("server", Api.DELETE_TICKET)
+                .append("id", id)
+        return HttpManager.request().simpleRequest(request.build(encodeDES)).defaultScheduler()
+    }
+
+    fun addTicket(id: Int, number: Int): Flowable<ResultData<JsonObject>> {
+        val request = ParamsBuilder.create().append("server", Api.ADD_TICKET)
+                .append("id", id).append("number", number)
+        return request().simpleRequest(request.build(encodeDES)).defaultScheduler()
+    }
+
 }
 

@@ -261,6 +261,8 @@ class TicketOrderConfirmActivity : TranslateStatusBarActivity() {
             usefulScore = data?.optInt("fullIntegral") ?: 0
             serverMoney = data?.optDouble("serverMoney") ?: 0.0
             discountMoney = data?.optDouble("money") ?: 0.0
+            if (discountMoney>10)
+                discountMoney = 10.0
             tv_safe_money.text = String.format("￥%.2f元/人", safeMoney)
             tv_score_discount_money.text = "抵扣￥$discountMoney"
             if (totalScore >= usefulScore) {

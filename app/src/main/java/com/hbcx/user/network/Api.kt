@@ -2,7 +2,7 @@ package com.hbcx.user.network
 
 object Api {
     const val BASE_URL = "http://192.168.1.152:8080/YunYou/" //胡瑶内网
-//    const val BASE_URL = "http://106.116.167.23/YunYou/" //外网地址
+//    const val BASE_URL = "http://39.96.176.247:80/YunYou/" //外网地址
     const val URL = "$BASE_URL/app/public/advertInfo?url="
     const val BASE_RULE = BASE_URL + "app/public/getAppText?type="
     const val NOTICE_INFO = BASE_URL + "app/public/noticeInfo?url="
@@ -30,7 +30,7 @@ object Api {
 
 
     //    const val SOCKET_SERVER = "192.168.3.228"
-    const val SOCKET_SERVER = "106.116.167.23"
+    const val SOCKET_SERVER = "39.96.176.247"
     const val SOCKET_PORT = 8888
 
     const val SEND_MSM = "/app/public/sendSms"
@@ -124,4 +124,6 @@ object Api {
     const val CLEAR_MSG = "/app/public/clearMessAll"
     const val GET_MSG_LIST = "/app/public/getMessList"
     const val GET_SERVICE = "/app/public/getServerPhone"
+    const val DELETE_TICKET = "/app/driverTicketing/minuspoll"
+    const val ADD_TICKET = "/app/driverTicketing/ dishonour"
 }
