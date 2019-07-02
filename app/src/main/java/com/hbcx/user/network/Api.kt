@@ -1,8 +1,8 @@
 package com.hbcx.user.network
 
 object Api {
-    const val BASE_URL = "http://192.168.1.152:8080/YunYou/" //胡瑶内网
-//    const val BASE_URL = "http://39.96.176.247:80/YunYou/" //外网地址
+//    const val BASE_URL = "http://192.168.1.152:8080/YunYou/" //胡瑶内网
+    const val BASE_URL = "http://39.96.176.247:80/YunYou/" //外网地址
     const val URL = "$BASE_URL/app/public/advertInfo?url="
     const val BASE_RULE = BASE_URL + "app/public/getAppText?type="
     const val NOTICE_INFO = BASE_URL + "app/public/noticeInfo?url="
