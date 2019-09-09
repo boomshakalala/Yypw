@@ -217,30 +217,7 @@ class TicketOrderDetailActivity : TranslateStatusBarActivity() {
 
     private fun encodeAsBitmap(contents: String,
                                format: BarcodeFormat, desiredWidth: Int, desiredHeight: Int): Bitmap {
-        val WHITE = -0x1
-        val BLACK = -0x1000000
-
-        val writer = MultiFormatWriter()
-        var result: BitMatrix? = null
-        try {
-            result = writer.encode(contents, format, desiredWidth,
-                    desiredHeight, null)
-        } catch (e: WriterException) {
-            e.printStackTrace()
-        }
-
-        val width = result!!.width
-        val height = result.height
-        val pixels = IntArray(width * height)
-        for (y in 0 until height) {
-            val offset = y * width
-            for (x in 0 until width) {
-                pixels[offset + x] = if (result.get(x, y)) BLACK else WHITE
-            }
-        }
-        val bitmap = Bitmap.createBitmap(width, height,
-                Bitmap.Config.ARGB_8888)
-        bitmap.setPixels(pixels, 0, width, 0, 0, width, height)
+        var bitmap = CodeUtils.createImage(contents, desiredWidth,desiredHeight,null)
         return drawText(bitmap,contents)
     }
 

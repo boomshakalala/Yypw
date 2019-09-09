@@ -161,7 +161,7 @@ class ChooseStationActivity : TranslateStatusBarActivity() {
                                     .putExtra("stationId", it.stationList[position].stationId)
                                     .putExtra("lineType", it.stationList[position].lineType)
                                     .putExtra("cityCode", citys[cityIndex].cityCode)
-                                    .putExtra("city", citys[position].cityName)
+                                    .putExtra("city", citys[cityIndex].cityName)
                                     .putExtra("name", it.stationList[position].stationName))
                             finish()
                         }

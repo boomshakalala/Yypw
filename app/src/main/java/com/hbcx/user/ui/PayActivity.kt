@@ -2,6 +2,7 @@ package com.hbcx.user.ui
 
 import android.app.Activity
 import android.os.CountDownTimer
+import android.util.Log
 import cn.sinata.xldutils.gone
 import cn.sinata.xldutils.utils.SPUtils
 import cn.sinata.xldutils.utils.SpanBuilder
@@ -72,6 +73,8 @@ class PayActivity : TranslateStatusBarActivity(), PayListener {
             tv_deadline.gone()
         } else {
             title = if (type == 0) "支付" else "支付方式"
+            Log.e("socket_receive", "time:$time")
+            Log.e("socket_receive", "time:${System.currentTimeMillis()}")
             object : CountDownTimer((if (type == 2) 5 else 30) * 60 * 1000 + time - System.currentTimeMillis(), 1000) {
                 override fun onFinish() {
                     if(!isDestroy){

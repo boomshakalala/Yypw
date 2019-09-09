@@ -19,6 +19,7 @@ import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.BarcodeFormat
+import com.hbcx.user.dialogs.CodeDialog
 import com.hbcx.user.utils.Const
 import kotlinx.android.synthetic.main.activity_ticket_pay_success.*
 import kotlinx.android.synthetic.main.item_passenger_info.view.*
@@ -70,7 +71,10 @@ class TicketPaySuccessActivity : TranslateStatusBarActivity() {
                             view.iv_ticket_code.gone()
                         } else
                             view.iv_ticket_code.setOnClickListener { _ ->
-                                iv_qr_code.imageBitmap = createBarcode("YunYou:"+orderNum+"0", dip(136), dip(136))
+                                val codeDialog = CodeDialog()
+                                var code = null
+                                codeDialog.arguments = bundleOf("code_img" to createBarcode("YunYou:"+it.elTicket+"0", dip(400), dip(150)),"code_str" to it.elTicket+"0")
+                                codeDialog.show(supportFragmentManager, "code")
                             }
                         ll_passenger.addView(view)
                     }
@@ -92,30 +96,7 @@ class TicketPaySuccessActivity : TranslateStatusBarActivity() {
 
     private fun encodeAsBitmap(contents: String,
                                format: BarcodeFormat, desiredWidth: Int, desiredHeight: Int): Bitmap {
-        val WHITE = -0x1
-        val BLACK = -0x1000000
-
-        val writer = MultiFormatWriter()
-        var result: BitMatrix? = null
-        try {
-            result = writer.encode(contents, format, desiredWidth,
-                    desiredHeight, null)
-        } catch (e: WriterException) {
-            e.printStackTrace()
-        }
-
-        val width = result!!.width
-        val height = result.height
-        val pixels = IntArray(width * height)
-        for (y in 0 until height) {
-            val offset = y * width
-            for (x in 0 until width) {
-                pixels[offset + x] = if (result.get(x, y)) BLACK else WHITE
-            }
-        }
-        val bitmap = Bitmap.createBitmap(width, height,
-                Bitmap.Config.ARGB_8888)
-        bitmap.setPixels(pixels, 0, width, 0, 0, width, height)
+        var bitmap = CodeUtils.createImage(contents,desiredWidth,desiredHeight,null)
         return drawText(bitmap,contents)
     }
 

@@ -128,8 +128,7 @@ class TicketOrderConfirmActivity : TranslateStatusBarActivity() {
             HttpManager.createTicketOrder(userId, passengersId.toString(), date.toTime("yyyy-MM-dd ") + startTime,
                     intent.getIntExtra("id", 0), intent.getIntExtra("startPointId", 0),
                     intent.getIntExtra("endPointId", 0), passengerNum, payMoney, serverMoney * passengerNum,
-                    coupon?.id ?: 0, coupon?.money
-                    ?: 0.0, if (switch_btn.isChecked) discountMoney else 0.0,
+                    coupon?.id ?: 0, coupon?.money ?: 0.0, if (switch_btn.isChecked) discountMoney else 0.0,
                     if (isBuySafe) safeMoney * passengerNum else 0.0, startPoint, endPoint, start, end, phone).request(this@TicketOrderConfirmActivity) { _, data ->
                 data?.let {
                     orderNum = it.optString("orderNum")

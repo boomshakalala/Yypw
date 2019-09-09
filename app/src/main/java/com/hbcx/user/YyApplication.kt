@@ -168,6 +168,8 @@ class YyApplication : BaseApplication(), Application.ActivityLifecycleCallbacks 
             //连接成功。发送一次心跳
             sendHeart()
         }
+//        NettyClient.getInstance().setOnCheckListener()
+
 
     }
 
