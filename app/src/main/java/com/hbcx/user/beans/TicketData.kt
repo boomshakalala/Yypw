@@ -66,7 +66,8 @@ data class TicketHistory(val start: String, val end: String, val startCode: Stri
 data class Region(
     val areaCode: String = "",
     val name: String = "",
-    val stationList: ArrayList<Station> = arrayListOf()
+    val stationList: ArrayList<Station> = arrayListOf(),
+    var isOpen: Boolean
 )
 
 data class Station(

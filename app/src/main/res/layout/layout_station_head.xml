@@ -28,6 +28,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tv_search"
+        android:text="出发省份"
+        android:textSize="14sp"
+        android:textColor="@color/colorPrimary"
+        android:background="#eeeeee"
+        android:layout_marginTop="10dp"
+        android:paddingStart="10dp"
+        android:id="@+id/tv_title_1"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_city_1"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/rv_city_1"
         android:text="出发城市"
         android:textSize="14sp"
         android:textColor="@color/colorPrimary"

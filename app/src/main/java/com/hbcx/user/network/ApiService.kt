@@ -92,6 +92,10 @@ interface ApiService {
     fun getOpenCity(@Query("key") key: String): Flowable<ResultData<ArrayList<com.hbcx.user.beans.OpenCity>>>
 
     @POST("app/server")
+    fun getEndCity(@Query("key") key: String): Flowable<ResultData<ArrayList<com.hbcx.user.beans.OpenProvince>>>
+
+
+    @POST("app/server")
     fun getMessages(@Query("key") key: String): Flowable<ResultData<ArrayList<Message>>>
 
     @POST("app/server")

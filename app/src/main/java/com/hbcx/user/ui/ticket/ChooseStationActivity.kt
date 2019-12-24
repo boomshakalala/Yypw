@@ -5,13 +5,16 @@ import android.content.Intent
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
+import android.view.View
 import cn.sinata.xldutils.view.SwipeRefreshRecyclerLayout
 import com.amap.api.col.sln3.it
 import com.hbcx.user.R
 import com.hbcx.user.adapter.OpenCityAdapter
+import com.hbcx.user.adapter.OpenProvinceAdapter
 import com.hbcx.user.adapter.RegionAdapter
 import com.hbcx.user.adapter.StationAdapter
 import com.hbcx.user.beans.OpenCity
+import com.hbcx.user.beans.OpenProvince
 import com.hbcx.user.beans.Region
 import com.hbcx.user.network.HttpManager
 import com.hbcx.user.ui.TranslateStatusBarActivity
@@ -36,6 +39,28 @@ class ChooseStationActivity : TranslateStatusBarActivity() {
                 getRegion()
             }
         }
+
+        proviceAdapter.setOnItemClickListener { _, position ->
+            var index = 0;
+            for (province in provinces) {
+                province.isChecked = index == position
+                index++
+                proviceAdapter.notifyDataSetChanged()
+            }
+            citys.clear()
+            regions.clear()
+            adapter.notifyDataSetChanged()
+            for (openCity in provinces[position].city) {
+                openCity.isChecked = false
+            }
+            citys.addAll(provinces[position].city)
+            if (citys.isNotEmpty()) {
+                citys[0].isChecked = true
+                cityIndex = 0
+                getRegion()
+            }
+            cityAdapter.notifyDataSetChanged()
+        }
     }
 
     private val isStart by lazy {
@@ -46,6 +71,7 @@ class ChooseStationActivity : TranslateStatusBarActivity() {
         find<SwipeRefreshRecyclerLayout>(R.id.swipeRefreshLayout)
     }
     private val citys = arrayListOf<OpenCity>()
+    private val provinces = arrayListOf<OpenProvince>()
     private val regions = arrayListOf<Region>()
     private val adapters = arrayListOf<StationAdapter>()
     private val adapter by lazy {
@@ -54,11 +80,20 @@ class ChooseStationActivity : TranslateStatusBarActivity() {
     private val cityAdapter by lazy {
         OpenCityAdapter(citys)
     }
+
+    private val proviceAdapter by lazy {
+        OpenProvinceAdapter(provinces)
+    }
     private val headerView by lazy {
         val view = LayoutInflater.from(this).inflate(R.layout.layout_station_head, recyclerLayout, false)
         view.rv_city.layoutManager = GridLayoutManager(this, 3)
+        view.rv_city_1.layoutManager = GridLayoutManager(this, 3)
+        view.rv_city_1.visibility = if(!isStart) View.VISIBLE else View.GONE
+        view.tv_title_1.visibility = if(!isStart) View.VISIBLE else View.GONE
         view.rv_city.adapter = cityAdapter
+        view.rv_city_1.adapter = proviceAdapter
         view.tv_title.text = if (isStart) "出发城市" else "到达城市"
+        view.tv_title_1.text = if (isStart) "出发省份" else "到达省份"
         view.tv_title_2.text = if (isStart) "选择上车点" else "选择下车点"
         view.tv_search.setOnClickListener {
             if (citys.isNotEmpty())
@@ -104,22 +139,36 @@ class ChooseStationActivity : TranslateStatusBarActivity() {
                             return@forEachWithIndex
                         }
                     }
-//                    if (citys.isNotEmpty()) {
-//                        citys[0].isChecked = true
-//                        getRegion()
-//                    }
+                    if (citys.isNotEmpty()) {
+                        citys[0].isChecked = true
+                        getRegion()
+                    }
                     cityAdapter.notifyDataSetChanged()
                 }
             }
         else
             HttpManager.getEndCity(cityId).request(this) { _, data ->
                 data?.let {
-                    citys.addAll(it)
-                    if (citys.isNotEmpty()) {
-                        citys[0].isChecked = true
-                        getRegion()
+//                    citys.addAll(it)
+//                    if (citys.isNotEmpty()) {
+//                        citys[0].isChecked = true
+//                        getRegion()
+//                    }
+//                    cityAdapter.notifyDataSetChanged()
+                    provinces.addAll(it)
+                    if (provinces.isNotEmpty()){
+                        provinces[0].isChecked = true
+//                        proviceAdapter.notifyDataSetChanged()
+                        citys.clear()
+                        citys.addAll(provinces[0].city)
+                        if (citys.isNotEmpty()) {
+                            citys[0].isChecked = true
+                            getRegion()
                     }
-                    cityAdapter.notifyDataSetChanged()
+                        proviceAdapter.notifyDataSetChanged()
+                        cityAdapter.notifyDataSetChanged()
+
+                    }
                 }
             }
     }
@@ -133,6 +182,7 @@ class ChooseStationActivity : TranslateStatusBarActivity() {
                 dismissDialog()
                 if (!data.isNullOrEmpty()) {
                     regions.addAll(data)
+                    data[0].isOpen = true
                     data.forEach {
                         val stationAdapter = StationAdapter(it.stationList)
                         stationAdapter.setOnItemClickListener { _, position ->
@@ -149,10 +199,12 @@ class ChooseStationActivity : TranslateStatusBarActivity() {
                 }
                 adapter.notifyDataSetChanged()
             }
-        else
+        else{
+            regions.clear()
             HttpManager.getEndStation(citys[cityIndex].cityCode, lineType, stationId).request(this) { _, data ->
                 dismissDialog()
                 if (!data.isNullOrEmpty()) {
+                    data[0].isOpen = true
                     regions.addAll(data)
                     data.forEach {
                         val stationAdapter = StationAdapter(it.stationList)
@@ -170,6 +222,7 @@ class ChooseStationActivity : TranslateStatusBarActivity() {
                 }
                 adapter.notifyDataSetChanged()
             }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

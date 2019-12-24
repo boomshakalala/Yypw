@@ -111,14 +111,14 @@ class SelectCityActivity : BaseActivity(), TextWatcher {
             HttpManager.getEndCity(startId).request(this) { _, data ->
                 data?.let {
                     if (it.size > 0) {
-                        index.forEach { index ->
-                            data.forEach {
-                                if (it.getInitial() == index)
-                                    sortData.add(it)
-                            }
-                        }
-                        this.data.addAll(sortData)
-                        adapter.notifyDataSetChanged()
+//                        index.forEach { index ->
+//                            data.forEach {
+//                                if (it.getInitial() == index)
+//                                    sortData.add(it)
+//                            }
+//                        }
+//                        this.data.addAll(sortData)
+//                        adapter.notifyDataSetChanged()
                     }
                 }
             }

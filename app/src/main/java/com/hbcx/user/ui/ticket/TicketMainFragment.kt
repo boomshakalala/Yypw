@@ -21,7 +21,6 @@ import com.hbcx.user.dialogs.TipDialog
 import com.hbcx.user.network.HttpManager
 import com.hbcx.user.ui.MainActivity
 import com.hbcx.user.ui.PayActivity
-import com.hbcx.user.ui.SelectCityActivity
 import com.hbcx.user.utils.Const
 import com.hbcx.user.utils.isBaseActivity
 import com.hbcx.user.utils.requestByF

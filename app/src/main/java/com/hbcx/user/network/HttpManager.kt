@@ -6,10 +6,7 @@ import cn.sinata.util.DES
 import cn.sinata.xldutils.data.ResultData
 import cn.sinata.xldutils.defaultScheduler
 import com.google.gson.JsonObject
-import com.hbcx.user.beans.Message
-import com.hbcx.user.beans.OpenCity
-import com.hbcx.user.beans.Region
-import com.hbcx.user.beans.Station
+import com.hbcx.user.beans.*
 import com.hbcx.user.utils.Const
 import io.reactivex.Flowable
 import okhttp3.MediaType
@@ -208,11 +205,12 @@ object HttpManager {
     /**
      * 获取到达城市
      */
-    fun getEndCity(id: Long): Flowable<ResultData<ArrayList<OpenCity>>> {
+    fun getEndCity(id: Long): Flowable<ResultData<ArrayList<OpenProvince>>> {
         val request = ParamsBuilder.create().append("server", Api.GET_END_CITY)
                 .append("id", id)
-        return request().getOpenCity(request.build(encodeDES)).defaultScheduler()
+        return request().getEndCity(request.build(encodeDES)).defaultScheduler()
     }
+
 
     /**
      * 城市是否开通

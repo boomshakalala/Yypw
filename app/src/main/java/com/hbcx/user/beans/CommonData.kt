@@ -6,6 +6,9 @@ data class OpenCity(val id:Int,val cityCode:String,val cityName:String,var isChe
     fun getInitial():String = Pinyin.toPinyin(cityName[0])[0].toString()
 }
 
+data class OpenProvince(val province:String,val city:ArrayList<OpenCity>,var isChecked:Boolean = false)
+
+
 data class IntegralData(val consumptionIntegral:Int,val integral:Int,val totalIntegral:Int,val integralRecordList:ArrayList<ScoreRecored>)
 data class ScoreRecored(val title:String,val integral:Int,val state:Int,val createTime:Long)
 data class InviteRecord(val imgUrl: String,val createTime:Long,val phone:String,val nickName:String)

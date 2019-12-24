@@ -2,13 +2,13 @@ package com.hbcx.user.network
 
 object Api {
     const val BASE_URL = "http://106.116.167.23:80/YunYou/" //外网地址
-//    const val BASE_URL = "http:/192.168.1.4:8080/YunYou/" //本地地址
+//    const val BASE_URL = "http://192.168.0.185 8080/YunYou/" //本地地址
     const val URL = "$BASE_URL/app/public/advertInfo?url="
     const val BASE_RULE = BASE_URL + "app/public/getAppText?type="
     const val NOTICE_INFO = BASE_URL + "app/public/noticeInfo?url="
     const val URL2 = "$BASE_URL/app/public/bannerInfo?url="
     const val INFO_URL = BASE_URL + "sys/apptext/getAppText?type=%s"
-    const val SHARE_URL = "http://106.116.167.23/YunYou/resources/share/downU.html"
+    const val SHARE_URL = "http://106.116.167.23/YunYou/resources/share/downU.html?userId="
     const val OSS_END_POINT = "http://oss-cn-beijing.aliyuncs.com"
     const val JUHE_URL = "http://op.juhe.cn/idcard/query" //聚合身份证校验
 
@@ -86,7 +86,7 @@ object Api {
     const val MAKE_SIGN = "/app/carChartered/userContract"
 
     /**票务**/
-    const val GET_END_CITY = "/app/ticketing/getDestinationCity"
+    const val GET_END_CITY = "/app/ticketing/getEndStation"
     const val LINE_TYPE_LIST = "/app/ticketing/getLineTypeList"
     const val LINE_LIST = "/app/ticketing/getDedicatedLineList"  //专线列表
     const val TICKET_LINE_LIST = "/app/ticketing/getTicketLineList" //票务班次列表
